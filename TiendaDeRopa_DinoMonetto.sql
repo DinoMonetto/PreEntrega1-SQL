@@ -1,5 +1,5 @@
 -- Dropeo por las dudas qu exista una base con el mismo nombre
-DROP DATABASE IF EXISTS tienda_de_ropa;
+DROP DATABASE IF EXISTS TiendaRopa;
 
 -- Crear base de datos
 CREATE DATABASE TiendaRopa;
