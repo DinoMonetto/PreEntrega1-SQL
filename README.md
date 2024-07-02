@@ -6,7 +6,58 @@ Profesor Anderson Ocaña**
 # **Descripción** :
 Esta base de datos está diseñada para gestionar una tienda de ropa en línea. La base de datos almacenará información sobre los productos disponibles, los clientes que compran en la tienda, los pedidos realizados por los clientes, y los detalles de cada pedido.
 
-# Diagrama de entidad relación de la base de datos
+# **Diagrama de entidad relación de la base de datos** (dejo un pdf con el diagrama hecho en dbdiagram.io)
++-------------------+       +-----------------+        +------------------------+
+|      Product      |       |   ProductCategory |      |         Customer       |
++-------------------+       +-----------------+        +------------------------+
+| product_id        |       | category_id     |        | customer_id            |
+| name              |  +--->| name            |        | first_name             |
+| description       |       +-----------------+        | last_name              |
+| price             |                                  | email                  |
+| stock             |                                  | phone                  |
+| category_id  -----+                                  +------------------------+
+
++------------------------+      +------------------+      +------------------------+
+|   CustomerAddress      |      |      Order       |      |     OrderDetail        |
++------------------------+      +------------------+      +------------------------+
+| address_id             |      | order_id         |      | order_detail_id        |
+| customer_id   ---------+--->  | customer_id      |      | order_id               |
+| address                |      | order_date       |      | product_id             |
+| city                   |      | status           |      | quantity               |
+| state                  |      +------------------+      | price                  |
+| postal_code            |                                +------------------------+
+| country                |                               
+                                                         
++------------------------+      +-------------------+     +------------------------+
+|     PaymentMethod      |      |     Shipping      |     |      ProductReview      |
++------------------------+      +-------------------+     +------------------------+
+| payment_id             |      | shipping_id       |     | review_id               |
+| method                 |      | order_id          |     | product_id              |
++------------------------+      | shipping_date     |     | customer_id             |
+                                | delivery_date     |     | rating                  |
+                                | carrier           |     | review                  |
+                                | tracking_number   |     | review_date             |
+                                +-------------------+     +------------------------+
+
++------------------------+
+|       Discount         |
++------------------------+
+| discount_id            |
+| code                   |
+| description            |
+| discount_percentage    |
+| start_date             |
+| end_date               |
++------------------------+
+
++------------------------+
+|       Inventory         |
++------------------------+
+| inventory_id            |
+| product_id              |
+| quantity                |
+| last_update             |
++------------------------+
 
 # Listado de las tablas que comprenden la base de datos
 ## Tabla: Categoría de Producto (ProductCategory)
